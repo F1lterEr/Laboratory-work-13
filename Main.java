@@ -10,6 +10,7 @@ public class Main {
             while((k = fileReader.read()) != -1){
                 text += (char)k;
             }
+            fileReader.close();
 
             String a = text.replaceAll("\\//.+", "");
             String c = a.replaceAll("/\\*(?s).*?\\*/", "");
@@ -17,6 +18,7 @@ public class Main {
             FileWriter fileWriter = new FileWriter("output.txt");
             fileWriter.write(c);
             fileWriter.flush();
+            fileWriter.close();
         }
         catch(IOException ex){
             System.out.println(ex.getMessage());
